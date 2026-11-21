@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 <body>
-<title>Interplanetary Farmer Handbook</title>
+<title>Interplanetary Farmer Handbook · v3.0.9</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -31,6 +31,7 @@ body { background: var(--bg); color: var(--ink); font: 17px/1.6 var(--body); }
 header.top { grid-column: 1 / -1; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
 .eyebrow { font: 600 13px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
 h1 { font: 700 clamp(34px, 6vw, 56px)/1.05 var(--display); margin: 12px 0 10px; text-wrap: balance; letter-spacing: -.01em; }
+.version { font: 600 14px/1.2 var(--mono); color: var(--muted); margin: -4px 0 12px; }
 .lede { max-width: 62ch; color: var(--muted); margin: 0; }
 nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); align-self: start; font-size: 15px; }
 nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: s; }
@@ -88,6 +89,7 @@ details.big > summary:focus-visible { outline: 2px solid var(--accent); outline-
 <header class="top">
 <div class="eyebrow">Farmer's reference · every rule and number</div>
 <h1>Interplanetary Farmer Handbook</h1>
+<p class="version">For version 3.0.9</p>
 <p class="lede">How the farm, the planets, the crops, the robots and the money work.</p>
 </header>
 <nav class="toc" aria-label="Contents"><ol><li><a href="#premise">The premise</a></li><li><a href="#time">Days, time and the night</a></li><li><a href="#farmoton">The Farmoton</a></li><li><a href="#planets">Planets</a></li><li><a href="#crops">Crops and growth</a></li><li><a href="#water">Water, rain and soil moisture</a></li><li><a href="#weeds-pests">Weeds and pests</a></li><li><a href="#farm">The farm and its buildings</a></li><li><a href="#mining">Mining</a></li><li><a href="#animals">Animals</a></li><li><a href="#beach">The beach and fishing</a></li><li><a href="#money">Markets, traders and money</a></li><li><a href="#robots">Helper robots and the Manager Robot</a></li><li><a href="#travel">Other planets and space stations</a></li><li><a href="#repairs">Breakdowns and repairs</a></li><li><a href="#visitors">Visiting robots</a></li><li><a href="#alliances">Alliances</a></li><li><a href="#milestones">Milestones and your Personal Space Base</a></li><li><a href="#screen">On screen</a></li><li><a href="#controls">Controls</a></li><li><a href="#music">Music and credits</a></li><li><a href="#saving">Saving</a></li></ol></nav>
@@ -288,10 +290,13 @@ It's collected at midnight on the rental's last day, and what it carried goes ba
 12×12 room with an oxygen filling station and <b>Swap-n-Match</b> and <b>Moon Maze</b> cabinets to play while your tank fills,
 and walk out through its doorway to leave; it can't be moved. On foot, ending the day (<kbd>N</kbd>) sends you to sleep in the
 shack: you wake inside it in the morning, with the night's report, and step out beside its door. Inside the shack, <kbd>N</kbd>
-(or <i>Sleep</i>) does the same, and your tank fills for every hour you sleep. <kbd>N</kbd> also sleeps until morning in your Personal
+(or <i>Sleep</i>) does the same, and your tank fills for every hour you sleep. <kbd>H</kbd> (or <i>Helpers</i>) opens the Helpers
+menu inside the shack, as on the farm. <kbd>N</kbd> also sleeps until morning in your Personal
 Space Base and the Void Yacht, where the tank fills only if the base has its oxygen filling station, and you're back where you left the farm. On foot (on the farm once you have no Farmoton; and always in the
 space port and at the beach, Farmoton or not; there in person rather than through the Command Center Chair) you breathe from an
-oxygen tank holding 60, shown by an air meter on the top bar. With a Farmoton, the farm's top bar shows the meter too while the tank isn't full.
+oxygen tank holding 60, shown by an air meter on the top bar. The market's <b>Equipment</b> vendor sells an
+<b>air tank upgrade</b> (10,000 nibs) that holds 50% more (90),
+yours on every farm; the extra room comes full. With a Farmoton, the farm's top bar shows the meter too while the tank isn't full.
 Walking and working use 60% of the air they would battery, and just breathing uses 0.6 an hour.
 When it runs out with no Farmoton you're sent to refill it: to your Personal Space Base if you've bought its oxygen filling station
 (50,000 nibs in the Base Store), otherwise to the farm's utility shack. If you have a Farmoton
@@ -507,7 +512,9 @@ Pest control, Water, Harvest, Weed, Plant. Driving or using a tool switches the 
 <kbd>P</kbd> hands it back.</li>
 <li><b>Planting</b>: it plants the seeds ticked in its list, choosing the one that suits today best. With <b>Next available</b>
 on, it also plants any legal seed you have in stock, best suited first (it still only buys the ticked ones). Helper robots and farm
-hands have a Next available choice for their seed too.</li>
+hands have a Next available choice for their seed too. When the plot is full and a regrowing seed it plants suits today clearly
+better than regrowing plants already in the ground, it clears the least suited of them, one per seed, and plants the better seed
+in their place. Ripe plants are harvested first.</li>
 <li><b>Restocking</b> (each can be switched off): water when the tank drops below 30%; pesticide up to
 10 doses when under 3, if a robot there has the sprayer; each chosen legal seed the Farmoton has tooling for, up to
 20 when fewer than 5 are left. It never spends below the reserve you set
@@ -517,8 +524,8 @@ hands have a Next available choice for their seed too.</li>
 If you have agreed to supply the planet, it first delivers what the Liaisonoton's request still needs (filling a request and then
 the next), and only sells what is left over.
 Money made on farms you are away from goes straight to your savings; the night report gives the total near the top.</li>
-<li><b>Surplus</b> (Manual by default): <i>Sell to the Surplusoton</i> sells it every legal good in the sheds and trailers
-whenever it comes; <i>Donate leftovers</i> delivers the planet's request and sells to the traders each night, as sell mode does, then gives the rest
+<li><b>Surplus</b> (Manual by default): <i>Sell to the Surplusoton</i> delivers the planet's request whenever it comes, then sells it
+every legal good in the sheds and trailers except what the planet's request, the coalition and the military still need; <i>Donate leftovers</i> delivers the planet's request and sells to the traders each night, as sell mode does, then gives the rest
 of the sheds' legal goods to the planet's food drive, keeping whatever the planet's request still needs.</li>
 <li><b>Approve days off</b> (off by default): the manager gives workers the day off when they ask, instead of asking you.</li>
 <li><b>Garage nights</b>: on autopilot with a garage, every 3 nights it parks the Farmoton for charging and repairs.</li>
